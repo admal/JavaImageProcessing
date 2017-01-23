@@ -1,5 +1,6 @@
 package Common.Utils;
 
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 
 /**
@@ -48,5 +49,30 @@ public class Utils
             }
         }
         return maxIdx;
+    }
+
+    public static int GetMaxOf2dArray (int[][] array)
+    {
+        int max = array[0][0];
+
+
+        for (int i = 0; i < array.length; i++)
+        {
+            for (int j = 0; j < array[0].length; j++)
+            {
+                if (max < array[i][j])
+                {
+                    max = array[i][j];
+                }
+            }
+        }
+
+        return max;
+    }
+
+    public static String GetFileName(String path, String extension)
+    {
+        LocalDateTime now = LocalDateTime.now();
+        return path + now.toString() + extension;
     }
 }
